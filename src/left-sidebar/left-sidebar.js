@@ -12,6 +12,17 @@ export default class LeftSidebar extends Component {
         console.log("display navigation bar item")
     };
 
+    // render () {
+    //
+    //     var btnClass = classNames({
+    //         'btn': true,
+    //         'btn-pressed': this.state.isPressed,
+    //         'btn-over': !this.state.isPressed && this.state.isHovered
+    //     });
+    //
+    //     return <button className={btnClass}>I'm a button!</button>;
+    //
+    // }
 
     render() {
         return (
@@ -138,7 +149,6 @@ export default class LeftSidebar extends Component {
                                     <li><a href="#">Insurance Plan</a></li>
                                     <li><a href="#">Reimbursement</a></li>
                                 </ul>
-
                             </li>
 
                         </ul>
