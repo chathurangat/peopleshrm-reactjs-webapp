@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {SkillsExpertise} from "./skills-expertise/skills-expertise";
 
 export class EmployeeDetails extends Component {
 
@@ -102,7 +103,7 @@ export class EmployeeDetails extends Component {
 
                                     {/*start skills and expertise details*/}
                                     <div className="tab-pane" id="skills-expertise-details">
-
+                                        <SkillsExpertise/>
                                     </div>
                                     {/*end skills and expertise details*/}
 
@@ -126,7 +127,7 @@ export class EmployeeDetails extends Component {
 
                                     </div>
                                     {/*end emergency details*/}
-                                    
+
                                 </div>
                             </div>
                         </div>

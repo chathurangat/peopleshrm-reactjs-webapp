@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import './common/MainCss.js';
+import './common/main-css.js';
 import LeftSidebar from "./left-sidebar/left-sidebar";
 import TopNavbar from "./top-navbar/top-navbar";
 import {EmployeeDetails} from "./employee-details/employee-details";
