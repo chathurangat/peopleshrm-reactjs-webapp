@@ -3,7 +3,53 @@ import './skills-expertise.css';
 
 export class SkillsExpertise extends Component {
 
+    state = {
+        skills: [
+            {
+                name: 'skill 1',
+            },
+            {
+                name: 'skill 2'
+            },
+            {
+                name: 'skill 3'
+            }
+        ]
+    };
+
+    onSkillCreate = (e) => {
+        if (e.key === 'Enter') {
+            console.log(" on create [" + e.key + "] [" + e.target.value + "]");
+
+            let skillToBeAdded = e.target.value;
+
+            if (skillToBeAdded.trim() === '') {
+                return;
+            }
+
+            let skillsList = this.state.skills;
+            skillsList.push({name: skillToBeAdded});
+            this.setState({skills: skillsList});
+
+            //clear the last entered skill from the inout field
+            //todo move with setting state
+            e.target.value = '';
+        }
+    };
+
+
+    onRemoveSkill = () => {
+        console.log(" on close ");
+    };
+
     render() {
+        const skillsList = this.state.skills.map((skill) =>
+            <span className="tag label label-info">
+                {skill.name}
+                <span data-role="remove" onClick={this.onRemoveSkill}/>
+            </span>
+        );
+
         return (
             <div className="card-box">
                 <div className="row">
@@ -14,27 +60,8 @@ export class SkillsExpertise extends Component {
 
                             <div className="tags-default">
                                 <div className="bootstrap-tagsinput">
-                                    <span className="tag label label-info">
-                                        Amsterdam
-                                        <span data-role="remove"></span>
-                                    </span>
-                                    <span className="tag label label-info">
-                                        Washington
-                                        <span data-role="remove"></span>
-                                    </span>
-                                    <span className="tag label label-info">
-                                        Sydney
-                                        <span data-role="remove"></span>
-                                    </span>
-                                    <span className="tag label label-info">
-                                        Beijing
-                                        <span data-role="remove">
-
-                                        </span>
-                                    </span>
-                                    <span
-                                        className="tag label label-info">Cairo<span data-role="remove"></span></span>
-                                    <input type="text" placeholder=""/>
+                                    {skillsList}
+                                    <input type="text" placeholder="Type here" onKeyPress={this.onSkillCreate}/>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +79,6 @@ export class SkillsExpertise extends Component {
                     </div>
                 </div>
 
-
                 <div className="row">
                     <div className="modal" id="myModal">
                         <div className="modal-dialog">
@@ -68,15 +94,14 @@ export class SkillsExpertise extends Component {
                                 </div>
 
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-danger" data-dismiss="modal">Close
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
+                
                 <div className="row">
                     <div className="col-12">
                         <div className="card-box">
@@ -87,10 +112,10 @@ export class SkillsExpertise extends Component {
                                         <div className="modal-body">
                                             <h2 className="text-uppercase text-center m-b-30">
                                                 <a href="index.html" className="text-success">
-                                                    <span><img src="assets/images/logo.png" alt="" height="28"/></span>
+                                                        <span><img src="assets/images/logo.png" alt=""
+                                                                   height="28"/></span>
                                                 </a>
                                             </h2>
-
 
                                             <form className="form-horizontal" action="#">
 
@@ -143,7 +168,6 @@ export class SkillsExpertise extends Component {
                                                         </button>
                                                     </div>
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>
